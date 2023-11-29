@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import avatar from "../img/avatar.png";
+import tyler from "../img/Tyler-Rake.png";
+import tyler2 from "../img/tyler2.png";
+import thecent from "../img/the100.png";
+import avengers from "../img/avenger.png";
+import bullet from "../img/bullter.png";
+import stone from "../img/agent-stone.png";
 
-const movieTitles = [
-  "Inception",
-  "The Shawshank Redemption",
-  "The Godfather",
-  "Pulp Fiction",
-  "The Dark Knight",
-  "Forrest Gump",
-  "The Matrix",
-  "Titanic",
-  "Fight Club",
+const items = [
+  { name: "tyler rake", image: tyler },
+  { name: "tyler rake 2", image: tyler2 },
+  { name: "The100", image: thecent },
+  { name: "Avengers: End game", image: avengers },
+  { name: "Bullet Train", image: bullet },
+  { name: "Agent Stone", image: stone },
+  { name: "Avengers: End game", image: avengers },
+  { name: "Bullet Train", image: bullet },
+  { name: "Agent Stone", image: stone },
 ];
 
 const HomePages = () => {
@@ -43,6 +49,9 @@ const HomePages = () => {
       container.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  function alertDeTest(){
+    alert("test")
+  }
 
   return (
     <div className="main">
@@ -84,7 +93,21 @@ const HomePages = () => {
           {cards.map((cardNumber, index) => (
             <div key={cardNumber} className="card">
               <div className="card-content">
-                <p>{`${cardNumber}: ${movieTitles[index]}`}</p>
+                {items[index] ? (
+                  <>
+                    <p>{`${cardNumber}: ${items[index].name}`}</p>
+                    <img
+                      src={items[index].image}
+                      alt={items[index].name}
+                      style={{
+                        width: "240px",
+                        height: "140px",
+                        borderRadius: "15px",
+                      }}
+                      onClick={alertDeTest}
+                    />
+                  </>
+                ) : null}
               </div>
             </div>
           ))}
