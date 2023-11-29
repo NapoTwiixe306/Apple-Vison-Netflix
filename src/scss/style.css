@@ -86,22 +86,30 @@ body {
 }
 .main .content {
   display: flex;
-  flex-direction: initial;
+  flex-direction: column;
 }
 .main .content .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 30px;
   position: absolute;
   left: 240px;
-  top: 60px;
-  overflow: hidden;
+  top: 40px;
 }
 .main .content .card-container .card {
   border: 2px solid red;
-  width: 250px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
+  width: 240px; /* Adjust the width as needed */
+  height: 140px; /* Adjust the height as needed */
   border-radius: 25px;
+}
+.main .content .card-container .card .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.main .content .card-container .card .card-content p {
+  margin-top: 140px;
 }
 
 /*# sourceMappingURL=style.css.map */

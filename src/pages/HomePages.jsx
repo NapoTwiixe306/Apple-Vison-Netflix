@@ -7,7 +7,6 @@ const HomePages = () => {
     const handleScroll = () => {
       const container = document.querySelector('.card-container');
       if (container && container.scrollTop + container.clientHeight >= container.scrollHeight - 10) {
-        // Load more cards when scrolled to the bottom (adjust the threshold as needed)
         setCards(prevCards => [...prevCards, ...Array.from({ length: 3 }, (_, index) => index + prevCards.length + 1)]);
       }
     };
@@ -46,11 +45,14 @@ const HomePages = () => {
           </div>
         </div>
         <div className="card-container">
-          {cards.map(cardNumber => (
+            {cards.map(cardNumber => (
             <div key={cardNumber} className="card">
-              <p>card {cardNumber}</p>
+                <div className="card-content">
+                    <p>card {cardNumber}</p>
+                {/* You can add other content here if needed */}
+                </div>
             </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
