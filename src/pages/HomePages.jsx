@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import avatar from '../img/avatar.png'
+
+const movieTitles = [
+    'Inception',
+    'The Shawshank Redemption',
+    'The Godfather',
+    'Pulp Fiction',
+    'The Dark Knight',
+    'Forrest Gump',
+    'The Matrix',
+    'Titanic',
+    'Fight Club',
+  ];
+  
 const HomePages = () => {
   const [cards, setCards] = useState(Array.from({ length: 9 }, (_, index) => index + 1));
 
@@ -45,14 +58,13 @@ const HomePages = () => {
           </div>
         </div>
         <div className="card-container">
-            {cards.map(cardNumber => (
+          {cards.map((cardNumber, index) => (
             <div key={cardNumber} className="card">
-                <div className="card-content">
-                    <p>card {cardNumber}</p>
-                {/* You can add other content here if needed */}
-                </div>
+              <div className="card-content">
+                <p>{`${cardNumber}: ${movieTitles[index]}`}</p>
+              </div>
             </div>
-            ))}
+          ))}
         </div>
       </div>
     </div>

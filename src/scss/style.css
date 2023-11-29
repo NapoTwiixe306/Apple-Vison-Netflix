@@ -17,7 +17,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 550px;
+  height: 580px;
   width: 1100px;
   background-color: rgba(208, 208, 208, 0.25);
   backdrop-filter: blur(50px);
@@ -30,7 +30,7 @@ body {
   background-color: rgba(168, 167, 167, 0.64);
   backdrop-filter: blur(50px);
   width: 200px;
-  height: 550px;
+  height: 580px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   display: flex;
@@ -81,7 +81,7 @@ body {
   background-color: rgba(168, 167, 167, 0.64);
   backdrop-filter: blur(50px);
   width: 900px;
-  height: 25px;
+  height: 50px;
   border-top-right-radius: 25px;
 }
 .main .content {
@@ -94,7 +94,7 @@ body {
   grid-gap: 30px;
   position: absolute;
   left: 240px;
-  top: 40px;
+  top: 70px;
 }
 .main .content .card-container .card {
   border: 2px solid red;
