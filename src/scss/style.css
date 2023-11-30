@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -107,8 +106,8 @@ body {
   top: 70px;
 }
 .main .content .card-container .card {
-  width: 240px; /* Adjust the width as needed */
-  height: 140px; /* Adjust the height as needed */
+  width: 240px;
+  height: 140px;
   border-radius: 25px;
 }
 .main .content .card-container .card .card-content {
@@ -139,12 +138,18 @@ body {
   z-index: 1000;
 }
 .main .modal-content {
-  background-color: #fff;
-  border-radius: 0; /* Modifié pour avoir un bord droit */
+  background-color: rgba(208, 208, 208, 0.25);
+  backdrop-filter: blur(50px);
+  border-radius: 0;
   overflow: hidden;
-  width: 300px; /* Largeur souhaitée */
-  height: 500px; /* Hauteur souhaitée */
+  color: white;
+  width: 300px;
+  height: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.main .modal-content.modal-open .modal-body img {
+  border-radius: 8px;
 }
 @media (max-width: 768px) {
   .main .modal-content {
@@ -169,16 +174,28 @@ body {
 .main .modal-body {
   padding: 16px;
 }
+.main .modal-body .title-card {
+  font-weight: bold;
+}
 .main .modal-body img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .main .modal-description {
   margin-top: 16px;
   font-size: 16px;
-  color: #555;
+  color: white;
+}
+.main .close {
+  position: absolute;
+  bottom: 15px;
+  padding: 10px 25px;
+  border: none;
+  background-color: #550a0a;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

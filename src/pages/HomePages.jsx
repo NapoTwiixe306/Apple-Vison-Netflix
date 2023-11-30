@@ -148,7 +148,6 @@ const HomePages = () => {
         {selectedCard && (
           <div className="modal" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <p>{selectedCard.name}</p>
               <div className="modal-body">
                 <img
                   src={selectedCard.image}
@@ -156,12 +155,14 @@ const HomePages = () => {
                   style={{
                     width: "100%",
                     height: "auto",
-                    borderRadius: "24px",
+                    borderRadius: "8px",
                     boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
                   }}
                 />
+                <p className="title-card">{selectedCard.name}</p>
+
                 <p className="modal-description">Ajoutez ici la description du contenu</p>
-                <button onClick={closeModal}>Fermer</button>
+                <button onClick={closeModal} className="close">Fermer</button>
               </div>
             </div>
           </div>
