@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import gsap from "gsap";
-import avatar from "../img/avatar.png";
 import tyler from "../img/Tyler-Rake.png";
 import tyler2 from "../img/tyler2.png";
 import thecent from "../img/the100.png";
@@ -10,6 +9,7 @@ import stone from "../img/agent-stone.png";
 import divergente from "../img/divergente.jpeg";
 import divergente2 from "../img/divergente2.jpeg";
 import divergente3 from "../img/divergente3.jpeg";
+import Navigations from "../components/Navigations";
 
 const items = [
   {
@@ -69,14 +69,6 @@ const items = [
 ];
 
 const HomePages = () => {
-
-  const [searchValue, setSearchValue] = useState("");
-
-  // Fonction pour mettre à jour la valeur de recherche
-  const handleSearchChange = (event) => {
-    setSearchValue(event.target.value);
-  };
-    
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCard = (index) => {
@@ -118,130 +110,24 @@ const HomePages = () => {
     });
   };
 
-  const [cards, setCards] = useState(
-    Array.from({ length: 9 }, (_, index) => index + 1),
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const container = document.querySelector(".card-container");
-      if (
-        container &&
-        container.scrollTop + container.clientHeight >=
-          container.scrollHeight - 10
-      ) {
-        setCards((prevCards) => [
-          ...prevCards,
-          ...Array.from(
-            { length: 3 },
-            (_, index) => index + prevCards.length + 1,
-          ),
-        ]);
-      }
-    };
-
-    const container = document.querySelector(".card-container");
-    container.addEventListener("scroll", handleScroll);
-
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <div className="main">
       <div className="content">
-        <div className="navigation">
-          <div className="sidebar">
-            <div className="img">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="500"
-                height="110"
-                viewBox="0 0 500 110"
-                fill="none"
-                className="svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M0 0.899994V109.586C6.83594 108.795 14.1406 108.035 20.9375 107.339C20.9766 84.5894 20.9766 70.6359 21.0156 47.9496C30.4297 70.2879 36.2109 83.482 45.5469 104.713C52.8906 104.048 60.9766 103.226 68.3594 102.625C68.3984 68.7058 68.4766 34.7871 68.5547 0.899994H47.5C47.4609 24.0926 47.4219 39.0902 47.3828 62.2828C38.3594 39.6598 29.2969 24.6937 20.2344 0.899994H0ZM88.8672 0.899994L88.6328 101.169C108.125 99.7453 127.656 98.543 147.188 97.6254C147.227 92.7527 147.227 85.7285 147.227 80.8559C134.531 81.457 122.383 82.1215 109.688 82.8176C109.727 73.8633 109.727 66.3961 109.766 57.4418C119.023 57.2836 128.789 57.4101 138.242 57.2836C138.242 52.3793 138.281 45.3234 138.281 40.4191C128.906 40.5457 119.023 40.5773 109.805 40.7039C109.844 31.718 109.844 26.782 109.844 17.7961C115.664 17.7328 142.461 17.7328 147.305 17.7012C147.305 12.7969 147.188 5.77265 147.188 0.899994H88.8672ZM239.414 0.899994C239.414 32.3508 239.414 63.8332 239.414 95.284C241.68 95.284 243.984 95.284 246.25 95.284C250.938 95.284 255.664 95.284 260.273 95.3156C260.273 81.9633 260.273 69.7816 260.273 56.4293C261.406 56.4293 286.016 56.3976 288.789 56.4293C288.789 51.6516 288.789 44.5324 288.75 39.7547C286.172 39.723 261.328 39.7547 260.273 39.7547C260.273 31.1484 260.273 26.3074 260.273 17.7328C262.539 17.7328 292.305 17.7328 298.008 17.7328C298.008 12.9551 297.969 5.70937 297.969 0.899994H239.414ZM311.68 0.994916C311.719 32.7621 311.523 64.4976 311.562 96.2648C330.273 96.8344 349.961 97.4355 368.633 98.4797C368.633 93.607 368.633 86.5828 368.633 81.6785C356.797 81.1406 344.492 80.4445 332.656 80.0332C332.578 52.8539 332.773 28.1742 332.695 0.994916H311.68ZM385.938 0.994916L386.172 99.5238C393.047 99.9668 400.117 100.41 406.992 100.916C406.992 67.6301 407.07 34.2808 406.992 0.994916H385.938ZM425 0.994916C433.438 17.6062 441.133 34.2492 449.688 51.9047C440.82 68.8324 431.758 85.6652 422.891 101.897C430.234 102.498 437.852 103.384 445.195 104.048C450.469 93.5754 455.234 85.507 460.508 74.7492C465.781 86.2031 470.586 95.0309 475.82 106.864C483.164 107.624 492.695 108.763 500 109.617C491.133 90.3797 481.406 70.3512 472.5 52.1578C481.367 35.1035 490.43 18.8086 499.688 0.994916H476.719C471.016 12.0059 467.07 19.0934 461.602 29.598C456.523 18.682 453.125 11.5945 448.008 0.994916H425ZM160.82 0.994916C160.82 5.83593 160.82 12.8285 160.82 17.7012C161.758 17.6695 181.992 17.7644 182.695 17.7644C182.656 44.7223 182.617 69.307 182.578 96.2648C189.453 96.0433 196.797 95.8851 203.633 95.7586C203.672 68.959 203.711 44.4691 203.75 17.7012C211.016 17.6695 218.516 17.6379 225.781 17.6379C225.781 12.8602 225.781 5.77265 225.781 0.994916H160.82Z"
-                  fill="black"
-                />
-              </svg>
-              <img src={avatar} alt="" />
-            </div>
-            <div className="menu">
-              <button>Accueil</button>
-              <button>Series</button>
-              <button>Film</button>
-              <button>Parametres</button>
-              <button>Nouveauté</button>
-            </div>
-            <button className="logout-button">Logout</button>
-          </div>
-          <div className="navbar">
-            {/*search*/}
-            <div className="search-container">
-              <input
-                type="text"
-                placeholder="Rechercher..."
-                value={searchValue}
-                onChange={handleSearchChange}
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="148"
-                height="141"
-                viewBox="0 0 148 141"
-                fill="none"
-                className="search"
-              >
-            <path
-                d="M95.7206 82.25H90.8809L89.1656 80.6637C95.3768 73.7549 98.7905 64.9346 98.7838 55.8125C98.7838 48.2597 96.4483 40.8766 92.0728 34.5966C87.6972 28.3167 81.4781 23.4222 74.2018 20.5318C66.9256 17.6415 58.919 16.8853 51.1946 18.3587C43.4701 19.8322 36.3748 23.4692 30.8058 28.8098C25.2368 34.1505 21.4442 40.9548 19.9077 48.3625C18.3713 55.7701 19.1598 63.4484 22.1738 70.4262C25.1877 77.4041 30.2916 83.3681 36.84 87.5642C43.3885 91.7603 51.0874 94 58.9632 94C68.8264 94 77.8933 90.5337 84.8772 84.7762L86.5313 86.4212V91.0625L117.162 120.379L126.291 111.625L95.7206 82.25ZM58.9632 82.25C43.7088 82.25 31.3951 70.4412 31.3951 55.8125C31.3951 41.1837 43.7088 29.375 58.9632 29.375C74.2175 29.375 86.5313 41.1837 86.5313 55.8125C86.5313 70.4412 74.2175 82.25 58.9632 82.25Z"
-                fill="black"
-              />
-            </svg>
-            </div>
-            <p>Jeunesse</p>
-            {/*bell*/}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="148"
-              height="141"
-              viewBox="0 0 148 141"
-              fill="none"
-              className="bell"
-            >
-              <path
-                d="M129.591 111.625V117.5H19.3184V111.625L31.5708 99.875V64.625C31.5708 46.4125 44.0071 30.3738 62.2021 25.2037V23.5C62.2021 20.3837 63.4929 17.395 65.7907 15.1915C68.0885 12.9879 71.205 11.75 74.4545 11.75C77.7041 11.75 80.8206 12.9879 83.1184 15.1915C85.4161 17.395 86.707 20.3837 86.707 23.5V25.2037C104.902 30.3738 117.338 46.4125 117.338 64.625V99.875L129.591 111.625ZM86.707 123.375C86.707 126.491 85.4161 129.48 83.1184 131.684C80.8206 133.887 77.7041 135.125 74.4545 135.125C71.205 135.125 68.0885 133.887 65.7907 131.684C63.4929 129.48 62.2021 126.491 62.2021 123.375"
-                fill="black"
-              />
-            </svg>
-          </div>
-        </div>
+        <Navigations />
         <div className="card-container">
-          {cards.map((cardNumber, index) => (
-            <div
-              key={cardNumber}
-              className="card"
-              onClick={() => handleCard(index)}
-            >
+          {items.map((item, index) => (
+            <div key={index} className="card" onClick={() => handleCard(index)}>
               <div className="card-content">
-                {items[index] ? (
-                  <>
-                    <p>{`${cardNumber}: ${items[index].name}`}</p>
-                    <img
-                      src={items[index].image}
-                      alt={items[index].name}
-                      style={{
-                        width: "240px",
-                        height: "140px",
-                        borderRadius: "15px",
-                      }}
-                    />
-                  </>
-                ) : null}
+                <p>{`${index + 1}: ${item.name}`}</p>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  style={{
+                    width: "240px",
+                    height: "140px",
+                    borderRadius: "15px",
+                  }}
+                />
               </div>
             </div>
           ))}
@@ -261,7 +147,6 @@ const HomePages = () => {
                   }}
                 />
                 <p className="title-card">{selectedCard.name}</p>
-
                 <p className="modal-description">{selectedCard.description}</p>
                 <button onClick={closeModal} className="close">
                   Fermer

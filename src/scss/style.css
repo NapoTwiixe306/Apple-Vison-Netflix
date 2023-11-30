@@ -76,7 +76,7 @@ body {
   padding: 10px 30px;
   font-weight: bold;
   border-radius: 12px;
-  background: #550a0a;
+  background: rgba(85, 10, 10, 0.4431372549);
   transition: 0.3s;
   color: white;
   cursor: pointer;
@@ -122,11 +122,14 @@ body {
   right: 10px;
   cursor: pointer;
 }
-.main .navigation .navbar .search, .main .navigation .navbar .bell, .main .navigation .navbar p {
+.main .navigation .navbar .search,
+.main .navigation .navbar .bell,
+.main .navigation .navbar p {
   font-weight: bold;
   margin-right: 10px;
 }
-.main .navigation .navbar .search, .main .navigation .navbar .bell {
+.main .navigation .navbar .search,
+.main .navigation .navbar .bell {
   width: 25px;
   height: 25px;
 }
