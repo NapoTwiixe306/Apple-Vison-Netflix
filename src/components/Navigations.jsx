@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 import avatar from "../img/avatar.png";
-export default function Navigations() {
+export default function Navigations({ toggleSeriesPanel }) {
   const [searchValue, setSearchValue] = useState("");
+  const seriesPanelRef = useRef(null);
+
+  useEffect(() => {
+    if (seriesPanelRef.current) {
+      gsap.set(seriesPanelRef.current, {
+        x: -seriesPanelRef.current.clientWidth,
+      });
+    }
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchValue(event.target.value);
   };
-
   return (
     <>
       <div className="navigation">
@@ -30,8 +39,8 @@ export default function Navigations() {
             <img src={avatar} alt="" />
           </div>
           <div className="menu">
-            <button>Accueil</button>
-            <button>Series</button>
+            <button onClick={toggleSeriesPanel}>Accueil</button>
+            <button onClick={toggleSeriesPanel}>Series</button>
             <button>Film</button>
             <button>Parametres</button>
             <button>Nouveauté</button>

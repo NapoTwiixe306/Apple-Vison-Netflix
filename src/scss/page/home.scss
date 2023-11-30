@@ -132,6 +132,7 @@
   .content {
     display: flex;
     flex-direction: column;
+
     .card-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -140,6 +141,7 @@
       left: 240px;
       top: 70px;
       .card {
+        border: 2px solid red;
         width: 240px;
         height: 140px;
         border-radius: 25px;

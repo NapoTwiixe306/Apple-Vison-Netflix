@@ -146,6 +146,7 @@ body {
   top: 70px;
 }
 .main .content .card-container .card {
+  border: 2px solid red;
   width: 240px;
   height: 140px;
   border-radius: 25px;
