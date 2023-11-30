@@ -135,16 +135,17 @@
   
   .modal-content {
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 0; /* Modifié pour avoir un bord droit */
     overflow: hidden;
-    width: 50%;
-    max-width: 500px;
+    width: 300px; /* Largeur souhaitée */
+    height: 500px; /* Hauteur souhaitée */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   
     @media (max-width: 768px) {
       width: 90%;
     }
   }
+  
   
   .modal-header {
     position: relative;
