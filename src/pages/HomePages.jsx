@@ -1,4 +1,3 @@
-// Importez les bibliothèques nécessaires
 import React, { useState, useEffect } from "react";
 import gsap from "gsap";
 import avatar from "../img/avatar.png";
@@ -8,23 +7,76 @@ import thecent from "../img/the100.png";
 import avengers from "../img/avenger.png";
 import bullet from "../img/bullter.png";
 import stone from "../img/agent-stone.png";
-import divergente from '../img/divergente.jpeg'
-import divergente2 from '../img/divergente2.jpeg'
-import divergente3 from '../img/divergente3.jpeg'
+import divergente from "../img/divergente.jpeg";
+import divergente2 from "../img/divergente2.jpeg";
+import divergente3 from "../img/divergente3.jpeg";
 
 const items = [
-  { name: "tyler rake", image: tyler, description: "Tyler Rake, interprété par Chris Hemsworth, est un mercenaire chargé de secourir le fils kidnappé d'un criminel. Le film Extraction est une intense aventure d'action mettant en avant la force et la bravoure de Rake." },
-  { name: "tyler rake 2", image: tyler2, description: "Dans Extraction 2, Tyler Rake revient dans un contexte de vengeance, plongeant à nouveau dans des missions périlleuses. Le personnage, toujours interprété par Chris Hemsworth, est confronté à de nouvelles épreuves d'action intense." },
-  { name: "The100", image: thecent, description: "The 100 se déroule dans un monde post-apocalyptique où 100 jeunes délinquants sont envoyés sur Terre pour déterminer si la planète est habitable. La série explore la survie, les dilemmes moraux, et les relations complexes entre les personnages." },
-  { name: "Avengers: End game", image: avengers, description: "Avengers: Endgame est l'épisode final de la saga Avengers de Marvel. Les super-héros survivants s'unissent pour inverser les effets dévastateurs de Infinity War. Avec des scènes épiques et des retournements inattendus, le film conclut de manière spectaculaire l'arc narratif des Avengers." },
-  { name: "Bullet Train", image: bullet, description: "Bullet Train est un film d'action à suspense qui suit un groupe de tueurs à bord d'un train à grande vitesse. Porté par un casting étoilé comprenant Brad Pitt, le film promet une combinaison d'intrigue captivante et de scènes d'action haletantes." },
-  { name: "Agent Stone", image: stone, description: "Agent Stone est un personnage fictif présent dans des univers variés. Sans détails spécifiques, il est souvent associé à des rôles d'agents secrets ou d'antagonistes. L'histoire précise dépend du contexte, que ce soit dans des films, des séries ou d'autres médias." },
-  { name: "Divergente", image: divergente, description: "Divergente est un film de science-fiction basé sur le roman du même nom. L'histoire se déroule dans une société divisée en factions basées sur les traits de personnalité. Tris Prior, l'héroïne, découvre qu'elle est divergente, ne pouvant être catégorisée, ce qui la met en danger." },
-  { name: "Divergente 2", image: divergente2, description: "Dans la suite, Divergente 2: L'insurrection, Tris et Four s'opposent à une autorité oppressive. Ils cherchent refuge parmi les sans-faction, découvrant des secrets choquants sur le monde qui les entoure et l'origine des divergents." },
-  { name: "Divergente 3", image: divergente3, description: "Divergente 3: Au-delà du mur suit Tris, Four et leurs alliés qui cherchent à découvrir ce qui se trouve au-delà du mur entourant Chicago. Ils sont confrontés à des révélations troublantes et doivent prendre des décisions cruciales pour l'avenir de leur société." },
+  {
+    name: "tyler rake",
+    image: tyler,
+    description:
+      "Tyler Rake, interprété par Chris Hemsworth, est un mercenaire chargé de secourir le fils kidnappé d'un criminel. Le film Extraction est une intense aventure d'action mettant en avant la force et la bravoure de Rake.",
+  },
+  {
+    name: "tyler rake 2",
+    image: tyler2,
+    description:
+      "Dans Extraction 2, Tyler Rake revient dans un contexte de vengeance, plongeant à nouveau dans des missions périlleuses. Le personnage, toujours interprété par Chris Hemsworth, est confronté à de nouvelles épreuves d'action intense.",
+  },
+  {
+    name: "The100",
+    image: thecent,
+    description:
+      "The 100 se déroule dans un monde post-apocalyptique où 100 jeunes délinquants sont envoyés sur Terre pour déterminer si la planète est habitable. La série explore la survie, les dilemmes moraux, et les relations complexes entre les personnages.",
+  },
+  {
+    name: "Avengers: End game",
+    image: avengers,
+    description:
+      "Avengers: Endgame est l'épisode final de la saga Avengers de Marvel. Les super-héros survivants s'unissent pour inverser les effets dévastateurs de Infinity War. Avec des scènes épiques et des retournements inattendus, le film conclut de manière spectaculaire l'arc narratif des Avengers.",
+  },
+  {
+    name: "Bullet Train",
+    image: bullet,
+    description:
+      "Bullet Train est un film d'action à suspense qui suit un groupe de tueurs à bord d'un train à grande vitesse. Porté par un casting étoilé comprenant Brad Pitt, le film promet une combinaison d'intrigue captivante et de scènes d'action haletantes.",
+  },
+  {
+    name: "Agent Stone",
+    image: stone,
+    description:
+      "Agent Stone est un personnage fictif présent dans des univers variés. Sans détails spécifiques, il est souvent associé à des rôles d'agents secrets ou d'antagonistes. L'histoire précise dépend du contexte, que ce soit dans des films, des séries ou d'autres médias.",
+  },
+  {
+    name: "Divergente",
+    image: divergente,
+    description:
+      "Divergente est un film de science-fiction basé sur le roman du même nom. L'histoire se déroule dans une société divisée en factions basées sur les traits de personnalité. Tris Prior, l'héroïne, découvre qu'elle est divergente, ne pouvant être catégorisée, ce qui la met en danger.",
+  },
+  {
+    name: "Divergente 2",
+    image: divergente2,
+    description:
+      "Dans la suite, Divergente 2: L'insurrection, Tris et Four s'opposent à une autorité oppressive. Ils cherchent refuge parmi les sans-faction, découvrant des secrets choquants sur le monde qui les entoure et l'origine des divergents.",
+  },
+  {
+    name: "Divergente 3",
+    image: divergente3,
+    description:
+      "Divergente 3: Au-delà du mur suit Tris, Four et leurs alliés qui cherchent à découvrir ce qui se trouve au-delà du mur entourant Chicago. Ils sont confrontés à des révélations troublantes et doivent prendre des décisions cruciales pour l'avenir de leur société.",
+  },
 ];
 
 const HomePages = () => {
+
+  const [searchValue, setSearchValue] = useState("");
+
+  // Fonction pour mettre à jour la valeur de recherche
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+    
   const [selectedCard, setSelectedCard] = useState(null);
 
   const handleCard = (index) => {
@@ -129,7 +181,43 @@ const HomePages = () => {
             <button className="logout-button">Logout</button>
           </div>
           <div className="navbar">
-            <p>navbar</p>
+            {/*search*/}
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Rechercher..."
+                value={searchValue}
+                onChange={handleSearchChange}
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="148"
+                height="141"
+                viewBox="0 0 148 141"
+                fill="none"
+                className="search"
+              >
+            <path
+                d="M95.7206 82.25H90.8809L89.1656 80.6637C95.3768 73.7549 98.7905 64.9346 98.7838 55.8125C98.7838 48.2597 96.4483 40.8766 92.0728 34.5966C87.6972 28.3167 81.4781 23.4222 74.2018 20.5318C66.9256 17.6415 58.919 16.8853 51.1946 18.3587C43.4701 19.8322 36.3748 23.4692 30.8058 28.8098C25.2368 34.1505 21.4442 40.9548 19.9077 48.3625C18.3713 55.7701 19.1598 63.4484 22.1738 70.4262C25.1877 77.4041 30.2916 83.3681 36.84 87.5642C43.3885 91.7603 51.0874 94 58.9632 94C68.8264 94 77.8933 90.5337 84.8772 84.7762L86.5313 86.4212V91.0625L117.162 120.379L126.291 111.625L95.7206 82.25ZM58.9632 82.25C43.7088 82.25 31.3951 70.4412 31.3951 55.8125C31.3951 41.1837 43.7088 29.375 58.9632 29.375C74.2175 29.375 86.5313 41.1837 86.5313 55.8125C86.5313 70.4412 74.2175 82.25 58.9632 82.25Z"
+                fill="black"
+              />
+            </svg>
+            </div>
+            <p>Jeunesse</p>
+            {/*bell*/}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="148"
+              height="141"
+              viewBox="0 0 148 141"
+              fill="none"
+              className="bell"
+            >
+              <path
+                d="M129.591 111.625V117.5H19.3184V111.625L31.5708 99.875V64.625C31.5708 46.4125 44.0071 30.3738 62.2021 25.2037V23.5C62.2021 20.3837 63.4929 17.395 65.7907 15.1915C68.0885 12.9879 71.205 11.75 74.4545 11.75C77.7041 11.75 80.8206 12.9879 83.1184 15.1915C85.4161 17.395 86.707 20.3837 86.707 23.5V25.2037C104.902 30.3738 117.338 46.4125 117.338 64.625V99.875L129.591 111.625ZM86.707 123.375C86.707 126.491 85.4161 129.48 83.1184 131.684C80.8206 133.887 77.7041 135.125 74.4545 135.125C71.205 135.125 68.0885 133.887 65.7907 131.684C63.4929 129.48 62.2021 126.491 62.2021 123.375"
+                fill="black"
+              />
+            </svg>
           </div>
         </div>
         <div className="card-container">

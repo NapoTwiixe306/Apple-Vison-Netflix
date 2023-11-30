@@ -86,12 +86,49 @@ body {
   background: #b61414;
 }
 .main .navigation .navbar {
-  border: 2px solid red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
   background-color: rgba(168, 167, 167, 0.64);
   backdrop-filter: blur(50px);
   width: 900px;
   height: 50px;
   border-top-right-radius: 25px;
+}
+.main .navigation .navbar .search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.main .navigation .navbar .search-container input {
+  width: 250px;
+  height: 30px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #e0e0e0;
+  transition: 0.3s;
+}
+.main .navigation .navbar .search-container input:focus {
+  outline: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.main .navigation .navbar .search-container .search {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.main .navigation .navbar .search, .main .navigation .navbar .bell, .main .navigation .navbar p {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.main .navigation .navbar .search, .main .navigation .navbar .bell {
+  width: 25px;
+  height: 25px;
 }
 .main .content {
   display: flex;
