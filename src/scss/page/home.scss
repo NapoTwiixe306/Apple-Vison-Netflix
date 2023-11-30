@@ -49,12 +49,11 @@
           padding: 10px 30px;
           border-radius: 12px;
           background: #e0e0e0;
-          transition: .3s;
+          transition: 0.3s;
           cursor: pointer;
           box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-          &:hover{
+          &:hover {
             background: #949393;
-
           }
         }
       }
@@ -67,13 +66,12 @@
         font-weight: bold;
         border-radius: 12px;
         background: #550a0a;
-        transition: .3s;
+        transition: 0.3s;
         color: white;
         cursor: pointer;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-        &:hover{
-            background: #b61414;
-
+        &:hover {
+          background: #b61414;
         }
       }
     }
@@ -99,7 +97,7 @@
       top: 70px;
       .card {
         width: 240px;
-        height: 140px; 
+        height: 140px;
         border-radius: 25px;
         .card-content {
           display: flex;
@@ -119,7 +117,7 @@
     }
   }
 
-.modal {
+  .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -132,28 +130,27 @@
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
   }
-  
+
   .modal-content {
     background-color: $backgroundRectangle;
     backdrop-filter: blur(50px);
-    border-radius: 0; 
+    border-radius: 0;
     overflow: hidden;
     color: white;
-    width: 300px; 
+    width: 300px;
     height: 500px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     &.modal-open {
-        .modal-body img {
-          border-radius: 8px; 
-        }
+      .modal-body img {
+        border-radius: 8px;
       }
+    }
     @media (max-width: 768px) {
       width: 90%;
     }
   }
-  
-  
+
   .modal-header {
     position: relative;
     padding: 16px;
@@ -161,7 +158,7 @@
     color: #fff;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   }
-  
+
   .modal-close {
     position: absolute;
     top: 16px;
@@ -170,27 +167,26 @@
     color: #fff;
     font-size: 24px;
   }
-  
+
   .modal-body {
     padding: 16px;
-    .title-card{
-    font-weight: bold;
-
+    .title-card {
+      font-weight: bold;
     }
   }
-  
+
   .modal-body img {
     width: 100%;
     height: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  
+
   .modal-description {
     margin-top: 16px;
     font-size: 16px;
     color: white;
   }
-  .close{
+  .close {
     position: absolute;
     bottom: 15px;
     padding: 10px 25px;
@@ -199,6 +195,5 @@
     color: white;
     border-radius: 10px;
     cursor: pointer;
-}
-  
+  }
 }

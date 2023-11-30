@@ -1,6 +1,6 @@
 // Importez les bibliothèques nécessaires
 import React, { useState, useEffect } from "react";
-import gsap from 'gsap';
+import gsap from "gsap";
 import avatar from "../img/avatar.png";
 import tyler from "../img/Tyler-Rake.png";
 import tyler2 from "../img/tyler2.png";
@@ -10,7 +10,7 @@ import bullet from "../img/bullter.png";
 import stone from "../img/agent-stone.png";
 
 const items = [
-  { name: "tyler rake", image: tyler },
+  { name: "tyler rake", image: tyler, description: "test" },
   { name: "tyler rake 2", image: tyler2 },
   { name: "The100", image: thecent },
   { name: "Avengers: End game", image: avengers },
@@ -63,18 +63,24 @@ const HomePages = () => {
     });
   };
 
-  const [cards, setCards] = useState(Array.from({ length: 9 }, (_, index) => index + 1));
+  const [cards, setCards] = useState(
+    Array.from({ length: 9 }, (_, index) => index + 1),
+  );
 
   useEffect(() => {
     const handleScroll = () => {
       const container = document.querySelector(".card-container");
       if (
         container &&
-        container.scrollTop + container.clientHeight >= container.scrollHeight - 10
+        container.scrollTop + container.clientHeight >=
+          container.scrollHeight - 10
       ) {
         setCards((prevCards) => [
           ...prevCards,
-          ...Array.from({ length: 3 }, (_, index) => index + prevCards.length + 1),
+          ...Array.from(
+            { length: 3 },
+            (_, index) => index + prevCards.length + 1,
+          ),
         ]);
       }
     };
@@ -125,7 +131,11 @@ const HomePages = () => {
         </div>
         <div className="card-container">
           {cards.map((cardNumber, index) => (
-            <div key={cardNumber} className="card" onClick={() => handleCard(index)}>
+            <div
+              key={cardNumber}
+              className="card"
+              onClick={() => handleCard(index)}
+            >
               <div className="card-content">
                 {items[index] ? (
                   <>
@@ -161,8 +171,10 @@ const HomePages = () => {
                 />
                 <p className="title-card">{selectedCard.name}</p>
 
-                <p className="modal-description">Ajoutez ici la description du contenu</p>
-                <button onClick={closeModal} className="close">Fermer</button>
+                <p className="modal-description">{selectedCard.description}</p>
+                <button onClick={closeModal} className="close">
+                  Fermer
+                </button>
               </div>
             </div>
           </div>
