@@ -8,8 +8,8 @@ export default function HomePages() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [isSeriesPanelOpen, setIsSeriesPanelOpen] = useState(false);
 
-  const handleCard = (index) => {
-    const card = items[index];
+  const handleCard = (index, isSeries = false) => {
+    const card = isSeries ? series[index] : items[index];
     const modal = document.querySelector(".modal-content");
 
     gsap.to(modal, {
@@ -63,10 +63,19 @@ export default function HomePages() {
                 <div
                   key={index}
                   className="card"
-                  onClick={() => handleCard(index)}
+                  onClick={() => handleCard(index, true)}
                 >
                   <div className="card-content">
                     <p>{serie.name}</p>
+                    <img
+                      src={serie.image}
+                      alt={serie.name}
+                      style={{
+                        width: "240px",
+                        height: "140px",
+                        borderRadius: "15px",
+                      }}
+                    />
                   </div>
                 </div>
               ))}
@@ -81,7 +90,7 @@ export default function HomePages() {
                 onClick={() => handleCard(index)}
               >
                 <div className="card-content">
-                  <p>{`${index + 1}: ${item.name}`}</p>
+                  <p>{item.name}</p>
                   <img
                     src={item.image}
                     alt={item.name}
